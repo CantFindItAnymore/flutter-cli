@@ -1,19 +1,9 @@
 import 'package:example/common/langs/index.dart';
-import 'package:example/pages/home/index.dart';
+import 'package:example/pages/login/index.dart';
 import 'package:example/common/styles/theme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:getx_scaffold/getx_scaffold.dart';
-
-/**
- * @author: Kxmrg
- * @github: https://github.com/Kxmrg
- * @version: 1.0.0
- * @copyright: Copyright © 2023-2024 Kxmrg
- * @license: MIT License
- * @date: 2024-07-03
- * @description: 
- */
 
 /// Main
 void main() async {
@@ -34,7 +24,7 @@ void main() async {
       // 主题模式
       themeMode: GlobalService.to.themeMode,
       // 主题
-      theme: AppTheme.light,
+      theme: AppTheme.dark,
       // Dark主题
       darkTheme: AppTheme.dark,
       // 国际化配置
@@ -44,9 +34,9 @@ void main() async {
       supportedLocales: TranslationLibrary.supportedLocales,
       localizationsDelegates: TranslationLibrary.localizationsDelegates,
       // AppTitle
-      title: 'GetxScaffold',
+      // title: 'GetxScaffold',
       // 首页
-      home: const HomePage(),
+      home: const LoginPage(),
       // Builder
       builder: (context, widget) {
         // do something....
