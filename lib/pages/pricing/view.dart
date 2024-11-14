@@ -22,8 +22,8 @@ class PricingPage extends GetView<PricingController> {
           resizeToAvoidBottomInset: false,
           appBar: AppBar(
             title: const Text("Pricing"),
-            centerTitle: true,
-            elevation: 1,
+            centerTitle: false,
+            elevation: 0,
           ),
           body: _buildView(),
         );

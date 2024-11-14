@@ -18,13 +18,13 @@ class NavBarPage extends GetView<NavBarController> {
       id: 'navBar',
       builder: (_) {
         return NavigationX(
-          currentIndex: controller.pageIndex, // 当前选中的tab索引
+          currentIndex: controller.pageIndex.value, // 当前选中的tab索引
           onTap: (index) {
-            if (index == controller.pageIndex) {
+            if (index == controller.pageIndex.value) {
               return;
             }
 
-            controller.pageIndex = index;
+            controller.pageIndex.value = index;
 
             switch (index) {
               case 0:
@@ -58,11 +58,11 @@ class NavBarPage extends GetView<NavBarController> {
               icon: AntdIcon.message,
               selectedIcon: AntdIcon.message,
             ),
-            NavigationItemModel(
-              label: 'example',
-              icon: AntdIcon.trademark,
-              selectedIcon: AntdIcon.trademark,
-            ),
+            // NavigationItemModel(
+            //   label: 'example',
+            //   icon: AntdIcon.trademark,
+            //   selectedIcon: AntdIcon.trademark,
+            // ),
           ],
         );
       },

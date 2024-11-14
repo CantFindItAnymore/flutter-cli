@@ -2,6 +2,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:getx_scaffold/getx_scaffold.dart';
 import '../../pages/email_login/index.dart';
 import '../../pages/home/index.dart';
+import '../../pages/navBar/index.dart';
 
 class LoginController extends GetxController with BaseControllerMixin {
   @override
@@ -14,19 +15,22 @@ class LoginController extends GetxController with BaseControllerMixin {
   @override
   void onInit() {
     super.onInit();
+
+    final navBarController = Get.put(NavBarController());
+    navBarController.pageIndex.value = 0;
     FlutterNativeSplash.remove();
   }
 
   void emailLogin() async {
     Get.to(() => const EmailLoginPage());
+
     loading.value = false;
   }
 
   void guestLogin() async {
     loading.value = true;
     delayed(3000, () {
-      Get.to(() => const HomePage());
-      loading.value = false;
+      Get.offAll(() => const HomePage(), transition: Transition.fadeIn);
     });
 
     // log('loading2: $loading');

@@ -16,7 +16,7 @@ void main() async {
   runApp(
     GetxApp(
       // 设计稿尺寸 单位：dp
-      designSize: const Size(390, 844),
+      designSize: const Size(375, 812),
       // Getx Log
       enableLog: kDebugMode,
       // 默认的跳转动画
@@ -34,7 +34,7 @@ void main() async {
       supportedLocales: TranslationLibrary.supportedLocales,
       localizationsDelegates: TranslationLibrary.localizationsDelegates,
       // AppTitle
-      // title: 'GetxScaffold',
+      title: 'chatpsychiai',
       // 首页
       home: const LoginPage(),
       // Builder

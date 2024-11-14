@@ -20,11 +20,12 @@ class LoginPage extends GetView<LoginController> {
             children: [
               // Logo
               const Image(
-                image: AssetImage("assets/images/logo.png"), // 确保添加logo图片资源
+                image: AssetImage(
+                    "assets/icons/ic_launcher_adaptive.png"), // 确保添加logo图片资源
                 width: 200,
               ),
 
-              const SizedBox(height: 300), // 间距
+              const SizedBox(height: 100), // 间距
 
               // 登录按钮
               SizedBox(
@@ -159,6 +160,7 @@ class LoginPage extends GetView<LoginController> {
         return DoublePressBackWidget(
             child: Scaffold(
           backgroundColor: Colors.black,
+          resizeToAvoidBottomInset: false,
           body: SafeArea(
             child: _buildView(),
           ),

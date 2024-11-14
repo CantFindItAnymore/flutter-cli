@@ -6,5 +6,5 @@ class NavBarController extends GetxController with BaseControllerMixin {
 
   NavBarController();
 
-  int pageIndex = 0;
+  var pageIndex = 0.obs;
 }

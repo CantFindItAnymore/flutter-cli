@@ -26,12 +26,12 @@ dev_dependencies:
 # flutter_icons 应用启动图标配置 https://pub-web.flutter-io.cn/packages/icons_launcher
 # flutter pub run icons_launcher:create
 icons_launcher:
-  image_path: 'assets/icons/ic_launcher.png'
+  image_path: 'assets/images/pro_icon.png'
   platforms:
     android:
       enable: true
-      adaptive_background_color: '#ffffff'
-      adaptive_foreground_image: 'assets/icons/ic_launcher_adaptive.png'
+      adaptive_background_color: '#000000'
+      adaptive_foreground_image: 'assets/images/pro_icon.png'
     ios:
       enable: true
 
@@ -41,15 +41,15 @@ icons_launcher:
 flutter_native_splash:
   android: true
   ios: true
-  color: '#ffffff'
+  color: '#000000'
   color_dark: '#23232a'
-  image: 'assets/icons/ic_launcher_adaptive.png'
-  image_dark: 'assets/icons/ic_launcher_adaptive_dark.png'
+  image: 'assets/images/pro_icon.png'
+  image_dark: 'assets/images/pro_icon.png'
   android_12:
-    color: '#ffffff'
+    color: '#000000'
     color_dark: '#23232a'
-    image: 'assets/icons/ic_launcher_adaptive.png'
-    image_dark: 'assets/icons/ic_launcher_adaptive_dark.png'
+    image: 'assets/images/pro_icon.png'
+    image_dark: 'assets/images/pro_icon.png'
 
 flutter:
   uses-material-design: true

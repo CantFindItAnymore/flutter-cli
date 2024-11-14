@@ -20,10 +20,11 @@ class CreatePage extends GetView<CreateController> {
       builder: (_) {
         return DoublePressBackWidget(
           child: Scaffold(
+            backgroundColor: const Color(0xFF16171D),
             appBar: AppBar(
               title: const Text("Create"),
-              centerTitle: true,
-              elevation: 1,
+              centerTitle: false,
+              elevation: 0,
             ),
             bottomNavigationBar: const NavBarPage(),
             body: _buildView(),

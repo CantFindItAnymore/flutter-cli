@@ -42,11 +42,14 @@ class AppTheme {
     colorScheme: ColorScheme.fromSeed(
       seedColor: darkThemeColor,
       brightness: Brightness.dark,
-      surface: const Color.fromARGB(255, 42, 42, 42),
+      // surface: const Color.fromARGB(255, 42, 42, 42),
+      surface: const Color(0xFF16171D),
+
       surfaceTint: Colors.transparent,
     ),
     appBarTheme: const AppBarTheme(
-      backgroundColor: Color.fromARGB(255, 34, 34, 34),
+      // backgroundColor: Color.fromARGB(255, 34, 34, 34),
+      backgroundColor: Color(0xFF16171D),
       centerTitle: true,
       titleTextStyle: TextStyle(
         fontSize: 18,
@@ -54,7 +57,8 @@ class AppTheme {
       ),
     ),
     bottomAppBarTheme: const BottomAppBarTheme(
-      color: Color.fromARGB(255, 34, 34, 34),
+      // color: Color.fromARGB(255, 34, 34, 34),
+      color: Color(0xFF16171D),
     ),
   );
 }

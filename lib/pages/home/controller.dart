@@ -1,4 +1,5 @@
 import 'package:getx_scaffold/getx_scaffold.dart';
+import '../../pages/chat/index.dart';
 
 import '../../common/model/base_model.dart';
 
@@ -9,6 +10,8 @@ class HomeController extends GetxController with BaseControllerMixin {
   LoadController? homeController = LoadController();
 
   HomeController();
+
+  var roles = [];
 
   @override
   void onInit() {
@@ -42,12 +45,11 @@ class HomeController extends GetxController with BaseControllerMixin {
 
     try {
       var response = await HttpService.to.get(
-        'http://54.166.200.78:7777/v1/user/sys/roleList',
-        params: {'id': 11, 'pageSize': 10},
+        'https://dog.ceo/api/breeds/image/random',
+        // params: {'id': 11, 'pageSize': 10},
       );
 
       if (response != null) {
-        dismissLoading();
         var result = BaseModel.fromJson(response.data);
         log('roles: $result');
       }
@@ -58,6 +60,14 @@ class HomeController extends GetxController with BaseControllerMixin {
     // setValue('roles', ['admin', 'user']);
 
     homeController?.complete();
+  }
+
+  void linkToChat(int id) {
+    final chatController = Get.put(ChatController());
+
+    chatController.setId(id);
+
+    Get.to(() => const ChatPage());
   }
 
   /// 是否监听生命周期事件

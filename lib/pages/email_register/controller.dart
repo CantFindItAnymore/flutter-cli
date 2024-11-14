@@ -34,7 +34,7 @@ class EmailRegisterController extends GetxController with BaseControllerMixin {
     loading.value = true;
 
     // HttpService.to.setAuthorization('1234567890');
-    showErrorToast('test');
+    // showErrorToast('test');
     Get.offAll(() => const HomePage(), transition: Transition.fadeIn);
   }
 
