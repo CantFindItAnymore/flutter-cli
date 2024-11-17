@@ -30,12 +30,62 @@ class HomePage extends GetView<HomeController> {
               children: [
                 ClipRRect(
                     borderRadius: BorderRadius.circular(32),
-                    child: ImageX.url(
-                      'https://picsum.photos/300/300?random=$i',
-                      width: 172,
-                      height: 172,
-                      radius: 32,
-                      fit: BoxFit.cover,
+                    child: Stack(
+                      children: [
+                        ImageX.url(
+                          'https://picsum.photos/300/300?random=$i',
+                          width: 172,
+                          height: 172,
+                          radius: 32,
+                          fit: BoxFit.cover,
+                        ),
+                        const Positioned(
+                          bottom: 12,
+                          left: 16,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  Icon(
+                                    Icons.message, // Message icon
+                                    color: Colors.white,
+                                    size: 12,
+                                  ),
+                                  SizedBox(
+                                      width: 2), // Space between icon and text
+                                  Text(
+                                    '235', // Total chat messages
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 12,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(width: 8),
+                              Row(
+                                children: [
+                                  Icon(
+                                    Icons.person, // Message icon
+                                    color: Colors.white,
+                                    size: 12,
+                                  ),
+                                  SizedBox(
+                                      width: 2), // Space between icon and text
+                                  Text(
+                                    '11', // Total chat messages
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 12,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     )),
                 const SizedBox(width: 16),
                 Expanded(

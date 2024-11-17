@@ -1,6 +1,8 @@
 import 'package:getx_scaffold/getx_scaffold.dart';
 import '../../common/model/base_model.dart';
 import '../../pages/chat/index.dart';
+import '../../pages/create/index.dart';
+import '../../pages/navBar/index.dart';
 
 class HistoryController extends GetxController with BaseControllerMixin {
   @override
@@ -10,12 +12,14 @@ class HistoryController extends GetxController with BaseControllerMixin {
   HistoryController();
 
   var recent = [];
+  var myRoles = [].obs;
 
   @override
   void onInit() {
     super.onInit();
 
     _getRecent();
+    _getMyRoles();
   }
 
   void _getRecent() async {
@@ -29,13 +33,31 @@ class HistoryController extends GetxController with BaseControllerMixin {
 
       if (response != null) {
         var result = BaseModel.fromJson(response.data);
-        log('roles: $result');
+        log('_getRecent: $result');
       }
     } catch (e) {
       log('get roles error: $e');
     }
 
-    // setValue('roles', ['admin', 'user']);
+    historyController?.complete();
+  }
+
+  void _getMyRoles() async {
+    historyController?.loading();
+
+    try {
+      var response = await HttpService.to.get(
+        'https://dog.ceo/api/breeds/image/random',
+        // params: {'id': 11, 'pageSize': 10},
+      );
+
+      if (response != null) {
+        var result = BaseModel.fromJson(response.data);
+        log('_getMyRoles: $result');
+      }
+    } catch (e) {
+      log('get roles error: $e');
+    }
 
     historyController?.complete();
   }
@@ -46,6 +68,12 @@ class HistoryController extends GetxController with BaseControllerMixin {
     chatController.setId(id);
 
     Get.to(() => const ChatPage());
+  }
+
+  void linkToCreate() {
+    final navBarController = Get.put(NavBarController());
+    navBarController.pageIndex.value = 1;
+    Get.offAll(() => const CreatePage(), transition: Transition.noTransition);
   }
 
   /// 是否监听生命周期事件

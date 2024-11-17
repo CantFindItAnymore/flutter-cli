@@ -12,15 +12,80 @@ class HistoryPage extends GetView<HistoryController> {
   // 主视图
   Widget _buildView() {
     return <Widget>[
-      for (var i = 0; i < 10; i++)
+      SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        padding: const EdgeInsets.only(left: 16),
+        child: Row(
+          children: [
+            GestureDetector(
+              onTap: () {
+                controller.linkToCreate();
+              },
+              child: Container(
+                  width: 70,
+                  margin: const EdgeInsets.only(right: 16),
+                  child: Column(children: [
+                    ClipRRect(
+                        borderRadius: BorderRadius.circular(56),
+                        child: const ImageX.asset(
+                          'assets/images/create_icon.png',
+                          width: 56,
+                          height: 56,
+                          radius: 56,
+                          fit: BoxFit.cover,
+                        )),
+                    const SizedBox(height: 8),
+                    const Text('Create',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                          overflow: TextOverflow.ellipsis,
+                        )),
+                  ])),
+            ),
+            for (var i = 0; i < 8; i++)
+              GestureDetector(
+                onTap: () {
+                  controller.linkToChat(i);
+                },
+                child: Container(
+                    width: 70,
+                    margin: const EdgeInsets.only(right: 16),
+                    child: Column(children: [
+                      ClipRRect(
+                          borderRadius: BorderRadius.circular(56),
+                          child: ImageX.url(
+                            'https://picsum.photos/100/100?random=$i',
+                            width: 56,
+                            height: 56,
+                            radius: 56,
+                            fit: BoxFit.cover,
+                          )),
+                      const SizedBox(height: 8),
+                      Text(
+                          'role{$i}Icon widget to display an icon. Adjust the icon as needed based on your design requirements.',
+                          style: const TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white,
+                            overflow: TextOverflow.ellipsis,
+                          )),
+                    ])),
+              ),
+          ],
+        ),
+      ),
+      const SizedBox(height: 16),
+      for (var j = 0; j < 10; j++)
         GestureDetector(
           onTap: () {
-            controller.linkToChat(i);
+            controller.linkToChat(j);
           },
           child: Container(
             height: 96,
             margin: EdgeInsets.only(
-                bottom: 16, left: 8, right: 8, top: i == 0 ? 16 : 0),
+                bottom: 16, left: 16, right: 16, top: j == 0 ? 16 : 0),
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
               color: const Color(0xFF21242D),
@@ -31,7 +96,7 @@ class HistoryPage extends GetView<HistoryController> {
                 ClipRRect(
                     borderRadius: BorderRadius.circular(48),
                     child: ImageX.url(
-                      'https://picsum.photos/100/100?random=$i',
+                      'https://picsum.photos/100/100?random=$j',
                       width: 48,
                       height: 48,
                       radius: 48,
@@ -43,7 +108,7 @@ class HistoryPage extends GetView<HistoryController> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('role $i',
+                      Text('role $j',
                           style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w600,

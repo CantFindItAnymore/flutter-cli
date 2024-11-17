@@ -18,6 +18,7 @@ class PricingPage extends GetView<PricingController> {
       id: 'pricing',
       builder: (_) {
         return Scaffold(
+          backgroundColor: const Color(0xFF16171D),
           extendBody: false,
           resizeToAvoidBottomInset: false,
           appBar: AppBar(

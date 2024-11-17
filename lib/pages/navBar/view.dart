@@ -58,11 +58,11 @@ class NavBarPage extends GetView<NavBarController> {
               icon: AntdIcon.message,
               selectedIcon: AntdIcon.message,
             ),
-            // NavigationItemModel(
-            //   label: 'example',
-            //   icon: AntdIcon.trademark,
-            //   selectedIcon: AntdIcon.trademark,
-            // ),
+            NavigationItemModel(
+              label: 'example',
+              icon: AntdIcon.trademark,
+              selectedIcon: AntdIcon.trademark,
+            ),
           ],
         );
       },
